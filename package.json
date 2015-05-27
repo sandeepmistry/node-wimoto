@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/sandeepmistry/node-wimoto/issues"
   },
-  "homepage": "https://github.com/sandeepmistry/node-wimoto"
+  "homepage": "https://github.com/sandeepmistry/node-wimoto",
+  "dependencies": {
+    "noble-device": "^1.0.2"
+  }
 }
