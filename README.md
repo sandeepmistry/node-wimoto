@@ -1,2 +1,2 @@
 # node-wimoto
-node.js lib for the Wimoto devices
+Node.js lib for the [Wimoto](http://www.wimoto.com) devices
