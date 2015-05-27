@@ -1,0 +1,22 @@
+{
+  "name": "wimoto",
+  "version": "0.0.0",
+  "description": "Node.js lib for Wimoto devices ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sandeepmistry/node-wimoto.git"
+  },
+  "keywords": [
+    "wimoto"
+  ],
+  "author": "Sandeep Mistry <sandeep.mistry@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sandeepmistry/node-wimoto/issues"
+  },
+  "homepage": "https://github.com/sandeepmistry/node-wimoto"
+}
