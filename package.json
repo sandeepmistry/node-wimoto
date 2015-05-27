@@ -21,5 +21,8 @@
   "homepage": "https://github.com/sandeepmistry/node-wimoto",
   "dependencies": {
     "noble-device": "^1.0.2"
+  },
+  "devDependencies": {
+    "async": "^1.0.0"
   }
 }
