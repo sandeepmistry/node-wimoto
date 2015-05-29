@@ -3,11 +3,12 @@ var util = require('util');
 var async = require('async');
 
 var Wimoto = require('./index');
+var WimotoClimate = Wimoto.Climate;
 
-Wimoto.discover(function(wimoto) {
-  console.log('discovered: ' + wimoto);
+WimotoClimate.discover(function(wimotoClimate) {
+  console.log('discovered: ' + wimotoClimate);
 
-  wimoto.on('disconnect', function() {
+  wimotoClimate.on('disconnect', function() {
     console.log('disconnected!');
     process.exit(0);
   });
@@ -15,46 +16,67 @@ Wimoto.discover(function(wimoto) {
   async.series([
       function(callback) {
         console.log('connectAndSetUp');
-        wimoto.connectAndSetUp(callback);
+        wimotoClimate.connectAndSetUp(callback);
       },
       function(callback) {
         console.log('readDeviceName');
-        wimoto.readDeviceName(function(error, deviceName) {
+        wimotoClimate.readDeviceName(function(error, deviceName) {
           console.log('\tdevice name = ' + deviceName);
           callback();
         });
       },
       function(callback) {
         console.log('readManufacturerName');
-        wimoto.readManufacturerName(function(error, manufacturerName) {
+        wimotoClimate.readManufacturerName(function(error, manufacturerName) {
           console.log('\tmanufacturer name = ' + manufacturerName);
           callback();
         });
       },
       function(callback) {
         console.log('readModelNumber');
-        wimoto.readModelNumber(function(error, modelNumber) {
+        wimotoClimate.readModelNumber(function(error, modelNumber) {
           console.log('\tmodel number = ' + modelNumber);
           callback();
         });
       },
       function(callback) {
         console.log('readSystemId');
-        wimoto.readSystemId(function(error, systemId) {
+        wimotoClimate.readSystemId(function(error, systemId) {
           console.log('\tsystem id = ' + systemId);
           callback();
         });
       },
       function(callback) {
         console.log('readBatteryLevel');
-        wimoto.readBatteryLevel(function(error, batteryLevel) {
+        wimotoClimate.readBatteryLevel(function(error, batteryLevel) {
           console.log('\tbattery level = ' + batteryLevel);
           callback();
         });
       },
       function(callback) {
+        console.log('readCurrentTemperature');
+        wimotoClimate.readCurrentTemperature(function(error, currentTemperature) {
+          console.log('\tcurrent temperature = ' + currentTemperature.toFixed(1) + ' °C');
+          callback();
+        });
+      },
+      function(callback) {
+        console.log('readCurrentLight');
+        wimotoClimate.readCurrentLight(function(error, light) {
+          console.log('\tcurrent light = ' + light + ' lux');
+          callback();
+        });
+      },
+      function(callback) {
+        console.log('readCurrentHumidity');
+        wimotoClimate.readCurrentHumidity(function(error, currentHumidity) {
+          console.log('\tcurrent humidity = ' + currentHumidity.toFixed(1) + ' %');
+          callback();
+        });
+      },
+      function(callback) {
         console.log('disconnect');
-        wimoto.disconnect(callback);
+        wimotoClimate.disconnect(callback);
       }
     ]
   );

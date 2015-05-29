@@ -1,18 +1,5 @@
-var NobleDevice = require('noble-device');
+var Climate = require('./lib/climate');
 
-var Wimoto = function(peripheral) {
-  NobleDevice.call(this, peripheral);
+module.exports = {
+  Climate: Climate
 };
-
-Wimoto.SCAN_UUIDS = ['5608', '5614', '560e'];
-
-NobleDevice.Util.inherits(Wimoto, NobleDevice);
-
-NobleDevice.Util.mixin(Wimoto, NobleDevice.DeviceInformationService, [
-  'readManufacturerName',
-  'readModelNumber',
-  'readSystemId'
-]);
-NobleDevice.Util.mixin(Wimoto, NobleDevice.BatteryService);
-
-module.exports = Wimoto;
