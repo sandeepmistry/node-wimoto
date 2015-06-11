@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/sandeepmistry/node-wimoto",
   "dependencies": {
+    "noble": "^1.0.1",
     "noble-device": "^1.0.2"
   },
   "devDependencies": {
