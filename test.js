@@ -1,5 +1,3 @@
-var util = require('util');
-
 var async = require('async');
 
 var Wimoto = require('./index');
@@ -11,6 +9,10 @@ WimotoClimate.discover(function(wimotoClimate) {
   wimotoClimate.on('disconnect', function() {
     console.log('disconnected!');
     process.exit(0);
+  });
+
+  wimotoClimate.on('currentTemperatureChange', function(currentTemperature) {
+    console.log('on currentTemperatureChange -> ' + currentTemperature.toFixed(1) + ' °C');
   });
 
   async.series([
@@ -60,6 +62,17 @@ WimotoClimate.discover(function(wimotoClimate) {
           callback();
         });
       },
+      // function(callback) {
+      //   console.log('notifyCurrentTemperature');
+      //   wimotoClimate.notifyCurrentTemperature(callback);
+      // },
+      // function(callback) {
+      //   setTimeout(callback, 30 * 1000);
+      // },
+      // function(callback) {
+      //   console.log('unnotifyCurrentTemperature');
+      //   wimotoClimate.unnotifyCurrentTemperature(callback);
+      // },
       function(callback) {
         console.log('readCurrentLight');
         wimotoClimate.readCurrentLight(function(error, light) {
