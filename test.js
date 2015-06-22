@@ -15,6 +15,10 @@ WimotoClimate.discover(function(wimotoClimate) {
     console.log('on currentTemperatureChange -> ' + currentTemperature.toFixed(1) + ' °C');
   });
 
+  wimotoClimate.on('currentHumidityChange', function(currentHumidity) {
+    console.log('on currentHumidityChange -> ' + currentHumidity.toFixed(1) + ' %');
+  });
+
   async.series([
       function(callback) {
         console.log('connectAndSetUp');
@@ -87,6 +91,17 @@ WimotoClimate.discover(function(wimotoClimate) {
           callback();
         });
       },
+      // function(callback) {
+      //   console.log('notifyCurrentHumidity');
+      //   wimotoClimate.notifyCurrentHumidity(callback);
+      // },
+      // function(callback) {
+      //   setTimeout(callback, 30 * 1000);
+      // },
+      // function(callback) {
+      //   console.log('unnotifyCurrentHumidity');
+      //   wimotoClimate.unnotifyCurrentHumidity(callback);
+      // },
       function(callback) {
         console.log('disconnect');
         wimotoClimate.disconnect(callback);
