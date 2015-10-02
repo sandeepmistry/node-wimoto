@@ -1,4 +1,4 @@
-var Wimoto = require('./index');
+var Wimoto = require('../');
 var WimotoBroadcast = Wimoto.Broadcast;
 
 
