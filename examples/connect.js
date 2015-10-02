@@ -1,6 +1,6 @@
 var async = require('async');
 
-var Wimoto = require('./index');
+var Wimoto = require('../');
 var WimotoClimate = Wimoto.Climate;
 
 WimotoClimate.discover(function(wimotoClimate) {
